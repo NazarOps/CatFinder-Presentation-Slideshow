@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import "./styles.css";
 
+const logoUrl = new URL("../CatFinderLogo.png", import.meta.url).href;
+
 const screenshotImages = [
   {
     title: "Start view",
@@ -210,7 +212,7 @@ function CoverSlide({ slide }) {
     <div className="coverLayout">
       <motion.img
         className="logo"
-        src="/CatFinderLogo.png"
+        src={logoUrl}
         alt="CatFinder logo"
         initial={{ opacity: 0, y: 18, rotate: -1.5 }}
         animate={{ opacity: 1, y: 0, rotate: 0 }}
