@@ -21,6 +21,7 @@ import {
 import "./styles.css";
 
 const logoUrl = new URL("../CatFinderLogo.png", import.meta.url).href;
+const sponsorUrl = new URL("../screenshots/sponsoredbyorange.jpg", import.meta.url).href;
 
 const screenshotImages = [
   {
@@ -158,6 +159,12 @@ const slides = [
       "Bättre chans att hitta rätt katt snabbare",
     ],
   },
+  {
+    kind: "sponsor",
+    eyebrow: "Sponsor",
+    title: "CatFinder is proudly sponsored by Mr Orange Cat",
+    image: sponsorUrl,
+  },
 ];
 
 const slideVariants = {
@@ -243,6 +250,8 @@ function App() {
             <TechStackSlide slide={activeSlide} />
           ) : activeSlide.kind === "structure" ? (
             <StructureSlide slide={activeSlide} />
+          ) : activeSlide.kind === "sponsor" ? (
+            <SponsorSlide slide={activeSlide} />
           ) : (
             <ContentSlide slide={activeSlide} />
           )}
@@ -458,6 +467,31 @@ function ScreenshotSlide({ slide }) {
           </motion.figure>
         ))}
       </div>
+    </div>
+  );
+}
+
+function SponsorSlide({ slide }) {
+  return (
+    <div className="sponsorLayout">
+      <motion.figure
+        className="sponsorImage"
+        initial={{ opacity: 0, y: 22, rotate: -1.2 }}
+        animate={{ opacity: 1, y: 0, rotate: 0 }}
+        transition={{ delay: 0.06, ...contentTransition }}
+      >
+        <img src={slide.image} alt="Mr Orange Cat sponsor" />
+      </motion.figure>
+
+      <motion.div
+        className="sponsorText"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.16, ...contentTransition }}
+      >
+        <p className="eyebrow">{slide.eyebrow}</p>
+        <h2>{slide.title}</h2>
+      </motion.div>
     </div>
   );
 }
