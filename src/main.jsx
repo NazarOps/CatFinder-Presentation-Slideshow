@@ -4,11 +4,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
+  Braces,
   Cat,
-  CircleUserRound,
+  Code2,
+  Database,
+  FileCode2,
+  FolderTree,
+  GitBranch,
+  Layers,
   MapPin,
   MessageCircle,
   Search,
+  Server,
   ShieldCheck,
 } from "lucide-react";
 import "./styles.css";
@@ -28,6 +35,46 @@ const screenshotImages = [
     title: "Application flow",
     src: new URL("../screenshots/Skärmbild 2026-05-22 234629.png", import.meta.url).href,
   },
+];
+
+const frontendStack = [
+  { icon: "Re", label: "React 19", color: "#20232a" },
+  { icon: "Vi", label: "Vite 8", color: "#646cff" },
+  { icon: "JS", label: "JavaScript", color: "#d6a600" },
+  { icon: "RQ", label: "React Query", color: "#d1495b" },
+  { icon: "Ax", label: "Axios", color: "#5a29e4" },
+  { icon: "Zu", label: "Zustand", color: "#7b4b2a" },
+  { icon: "RR", label: "React Router", color: "#c23636" },
+  { icon: "ES", label: "ESLint", color: "#4b32c3" },
+];
+
+const backendStack = [
+  { icon: "C#", label: "C#", color: "#239120" },
+  { icon: ".N", label: ".NET 10", color: "#512bd4" },
+  { icon: "API", label: "ASP.NET Core", color: "#5c2d91" },
+  { icon: "EF", label: "EF Core", color: "#68217a" },
+  { icon: "SQL", label: "SQL Server", color: "#cc2927" },
+  { icon: "JWT", label: "JWT Auth", color: "#111827" },
+  { icon: "MR", label: "MediatR / CQRS", color: "#1e6f5c" },
+  { icon: "AM", label: "AutoMapper", color: "#d97706" },
+];
+
+const frontendStructure = [
+  { icon: FileCode2, title: "src/App.jsx", detail: "Routes and app shell" },
+  { icon: Layers, title: "src/pages", detail: "Home, ads, auth, admin and saved views" },
+  { icon: Code2, title: "src/components", detail: "Advertisement, comment, layout and routing UI" },
+  { icon: Server, title: "src/services", detail: "Axios API communication" },
+  { icon: Database, title: "src/store", detail: "Zustand client state" },
+  { icon: Braces, title: "src/styles", detail: "Shared CSS styling" },
+];
+
+const backendStructure = [
+  { icon: Server, title: "APILayer", detail: "Controllers, middleware, Program.cs and appsettings" },
+  { icon: GitBranch, title: "ApplicationLayer", detail: "CQRS features for auth, cats, reports, comments and users" },
+  { icon: Cat, title: "DomainLayer", detail: "Models and validators" },
+  { icon: Database, title: "InfrastructureLayer", detail: "Database, migrations, repositories, seeding and services" },
+  { icon: ShieldCheck, title: "TestLayer", detail: "Backend tests" },
+  { icon: FolderTree, title: "SEEKAT2.slnx", detail: "Solution entry point" },
 ];
 
 const slides = [
@@ -78,15 +125,25 @@ const slides = [
     screenshots: screenshotImages,
   },
   {
-    eyebrow: "Teknik",
-    title: "Fullstack .NET web application",
+    kind: "techStack",
+    eyebrow: "Tech Stack",
+    title: "Frontend + backend technologies",
     body:
-      "Projektet bygger på en fullstack-arkitektur där backend hanterar användare, annonser och kommentarer medan frontend fokuserar på enkel navigering och tydlig presentation av information.",
-    featureGrid: [
-      { icon: ShieldCheck, label: ".NET backend" },
-      { icon: CircleUserRound, label: "Authentication" },
-      { icon: Cat, label: "Advertisement data" },
-      { icon: MessageCircle, label: "Comment workflow" },
+      "CatFinder combines a React/Vite client with a layered ASP.NET Core backend. The stack supports routing, cached API data, secure authentication, database persistence and maintainable CQRS-style application features.",
+    columns: [
+      { title: "Frontend repo", subtitle: "NazarOps/CatFinder-FE", items: frontendStack },
+      { title: "Backend repo", subtitle: "geoch4/CatFinder-BE", items: backendStack },
+    ],
+  },
+  {
+    kind: "structure",
+    eyebrow: "Project Structure",
+    title: "How the repositories are organized",
+    body:
+      "The frontend is grouped around pages, reusable components, services and state. The backend follows Clean Architecture boundaries with API, application, domain and infrastructure projects.",
+    columns: [
+      { title: "Frontend", subtitle: "React application structure", items: frontendStructure },
+      { title: "Backend", subtitle: "Clean Architecture layers", items: backendStructure },
     ],
   },
   {
@@ -182,6 +239,10 @@ function App() {
             <CoverSlide slide={activeSlide} />
           ) : activeSlide.kind === "screenshots" ? (
             <ScreenshotSlide slide={activeSlide} />
+          ) : activeSlide.kind === "techStack" ? (
+            <TechStackSlide slide={activeSlide} />
+          ) : activeSlide.kind === "structure" ? (
+            <StructureSlide slide={activeSlide} />
           ) : (
             <ContentSlide slide={activeSlide} />
           )}
@@ -276,6 +337,95 @@ function ContentSlide({ slide }) {
           ))}
         </div>
       )}
+    </div>
+  );
+}
+
+function TechStackSlide({ slide }) {
+  return (
+    <div className="techLayout">
+      <motion.div
+        className="techIntro"
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.04, ...contentTransition }}
+      >
+        <p className="eyebrow">{slide.eyebrow}</p>
+        <h2>{slide.title}</h2>
+        {slide.body && <p className="body">{slide.body}</p>}
+      </motion.div>
+
+      <div className="stackColumns">
+        {slide.columns.map((column, columnIndex) => (
+          <motion.section
+            className="stackColumn"
+            key={column.title}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12 + columnIndex * 0.08, ...contentTransition }}
+          >
+            <div className="columnHeader">
+              <h3>{column.title}</h3>
+              <p>{column.subtitle}</p>
+            </div>
+            <div className="stackGrid">
+              {column.items.map((item) => (
+                <div className="stackBadge" key={item.label}>
+                  <span className="stackIcon" style={{ "--stack-color": item.color }}>
+                    {item.icon}
+                  </span>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function StructureSlide({ slide }) {
+  return (
+    <div className="structureLayout">
+      <motion.div
+        className="structureIntro"
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.04, ...contentTransition }}
+      >
+        <p className="eyebrow">{slide.eyebrow}</p>
+        <h2>{slide.title}</h2>
+        {slide.body && <p className="body">{slide.body}</p>}
+      </motion.div>
+
+      <div className="structureColumns">
+        {slide.columns.map((column, columnIndex) => (
+          <motion.section
+            className="structureColumn"
+            key={column.title}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12 + columnIndex * 0.08, ...contentTransition }}
+          >
+            <div className="columnHeader">
+              <h3>{column.title}</h3>
+              <p>{column.subtitle}</p>
+            </div>
+            <div className="structureList">
+              {column.items.map(({ icon: Icon, title, detail }) => (
+                <div className="structureItem" key={title}>
+                  <Icon size={24} strokeWidth={1.8} />
+                  <div>
+                    <strong>{title}</strong>
+                    <span>{detail}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.section>
+        ))}
+      </div>
     </div>
   );
 }
