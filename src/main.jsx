@@ -82,47 +82,47 @@ const slides = [
   {
     kind: "cover",
     title: "CatFinder",
-    subtitle: "En modern plattform för saknade och upphittade katter",
+    subtitle: "A modern platform for lost and found cats",
   },
   {
     eyebrow: "Problem Statement",
-    title: "Varför behövs CatFinder?",
+    title: "Why CatFinder is needed",
     body:
-      "Varje år försvinner tusentals katter, och idag är informationen kring upphittade eller saknade katter utspridd över Facebook-grupper, lokala forum och äldre webbplatser med låg tillgänglighet och otydlig struktur.",
+      "Every year, thousands of cats go missing, and information about lost or found cats is spread across Facebook groups, local forums and older websites with low accessibility and unclear structure.",
     bullets: [
-      "Djurägare får svårt att snabbt nå ut med korrekt information.",
-      "Användare måste leta på flera olika platser.",
-      "Relevanta annonser i närområdet blir svåra att hitta.",
+      "Pet owners struggle to quickly share accurate information.",
+      "Users need to search across several different places.",
+      "Relevant nearby ads become hard to find.",
     ],
   },
   {
-    eyebrow: "Lösning",
-    title: "En centraliserad och användarvänlig plattform",
+    eyebrow: "Solution",
+    title: "A centralized and user-friendly platform",
     body:
-      "CatFinder samlar skapande, sökning och interaktion kring annonser på ett ställe. Målet är att göra processen snabbare, mer tillgänglig och mer organiserad för att öka chanserna att återförena katter med sina ägare.",
+      "CatFinder brings ad creation, search and interaction into one place. The goal is to make the process faster, more accessible and more organized to increase the chance of reuniting cats with their owners.",
     featureGrid: [
-      { icon: Cat, label: "Lost & found annonser" },
-      { icon: Search, label: "Sökbar information" },
-      { icon: MessageCircle, label: "Kommentarer på annonser" },
-      { icon: MapPin, label: "Relevant lokal kontext" },
+      { icon: Cat, label: "Lost & found ads" },
+      { icon: Search, label: "Searchable information" },
+      { icon: MessageCircle, label: "Comments on ads" },
+      { icon: MapPin, label: "Relevant local context" },
     ],
   },
   {
-    eyebrow: "Funktioner",
-    title: "Vad användaren kan göra",
+    eyebrow: "Features",
+    title: "What users can do",
     bullets: [
-      "Registrera konto och logga in säkert.",
-      "Skapa annonser för saknade eller upphittade katter.",
-      "Läsa andra användares annonser och kommentera vid tips.",
-      "Hantera information i ett tydligt, modernt gränssnitt.",
+      "Register an account and sign in securely.",
+      "Create ads for lost or found cats.",
+      "Read other users' ads and comment with useful tips.",
+      "Manage information through a clear, modern interface.",
     ],
   },
   {
     kind: "screenshots",
     eyebrow: "Screenshots",
-    title: "CatFinder i praktiken",
+    title: "CatFinder in practice",
     body:
-      "Nedan visas utvalda vyer från applikationen, med fokus på hur användaren möter annonser och navigerar i flödet.",
+      "These selected views from the application show how users interact with ads and move through the main flow.",
     screenshots: screenshotImages,
   },
   {
@@ -148,15 +148,27 @@ const slides = [
     ],
   },
   {
-    eyebrow: "Effekt",
-    title: "Mer struktur, snabbare kontakt",
+    eyebrow: "Impact",
+    title: "More structure, faster contact",
     body:
-      "Genom att samla informationen på en modern plattform blir det enklare för kattägare och upphittare att hitta varandra. CatFinder minskar friktionen från första annons till möjlig återförening.",
+      "By collecting the information on a modern platform, CatFinder makes it easier for cat owners and finders to reach each other. It reduces friction from the first ad to a possible reunion.",
     bullets: [
-      "Centraliserad information",
-      "Tydligare annonser",
-      "Direkt dialog via kommentarer",
-      "Bättre chans att hitta rätt katt snabbare",
+      "Centralized information",
+      "Clearer ads",
+      "Direct dialogue through comments",
+      "Better chance of finding the right cat faster",
+    ],
+  },
+  {
+    eyebrow: "Future Plans",
+    title: "Next steps for CatFinder",
+    body:
+      "After the first version, CatFinder can keep growing with better visibility for urgent ads, broader geographic reach, a dedicated mobile experience and more scalable cloud hosting.",
+    bullets: [
+      "Paid prioritized ads for urgent lost cat cases.",
+      "Expand worldwide with broader location support.",
+      "Build a smartphone app with push notifications and camera-based ad creation.",
+      "Upgrade to DigitalOcean for scalable cloud hosting.",
     ],
   },
   {
