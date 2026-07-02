@@ -148,6 +148,28 @@ const slides = [
     ],
   },
   {
+    eyebrow: "What I Learned",
+    title: "From development to Ubuntu VPS hosting",
+    body:
+      "This bootcamp taught me more than app development. I also got hands-on experience with Linux servers and basic DevOps while hosting CatFinder on an Ubuntu VPS.",
+    bullets: [
+      "Hosted CatFinder on an Ubuntu Linux VPS.",
+      "Worked with deployment, server setup, and production hosting.",
+      "Saw how development and operations connect in a real project.",
+    ],
+  },
+  {
+    eyebrow: "Personal Growth",
+    title: "Pitching ideas with more confidence",
+    body:
+      "This project also improved my communication skills. I became more confident presenting ideas, explaining CatFinder, and getting people interested quickly.",
+    bullets: [
+      "Explain technical choices more clearly.",
+      "Focus on product value, not just the code.",
+      "Capture interest faster when introducing the project.",
+    ],
+  },
+  {
     eyebrow: "Impact",
     title: "More structure, faster contact",
     body:
@@ -163,12 +185,12 @@ const slides = [
     eyebrow: "Future Plans",
     title: "Next steps for CatFinder",
     body:
-      "After the first version, CatFinder can keep growing with better visibility for urgent ads, broader geographic reach, a dedicated mobile experience and more scalable cloud hosting.",
+      "Now that the web app is mostly finished, the next step is local promotion and early user feedback.",
     bullets: [
-      "Paid prioritized ads for urgent lost cat cases.",
-      "Expand worldwide with broader location support.",
-      "Build a smartphone app with push notifications and camera-based ad creation.",
-      "Upgrade to DigitalOcean for scalable cloud hosting.",
+      "Print posters and place them around my area.",
+      "Share CatFinder in local lost-and-found cat Facebook groups.",
+      "Drive local traffic from posters and social media.",
+      "Use early feedback to improve the product before expanding further.",
     ],
   },
   {
