@@ -22,6 +22,7 @@ import "./styles.css";
 
 const logoUrl = new URL("../CatFinderLogo.png", import.meta.url).href;
 const sponsorUrl = new URL("../screenshots/sponsoredbyorange.jpg", import.meta.url).href;
+const qrCodeUrl = new URL("./img/QBm2hi.png", import.meta.url).href;
 
 const screenshotImages = [
   {
@@ -198,6 +199,14 @@ const slides = [
     eyebrow: "Sponsor",
     title: "CatFinder is proudly sponsored by Mr Orange Cat",
     image: sponsorUrl,
+  },
+  {
+    kind: "sponsor",
+    eyebrow: "Try It Live",
+    title: "Scan the QR code to open CatFinder",
+    body: "Use the QR code to jump straight to the live app from your phone at the end of the presentation.",
+    image: qrCodeUrl,
+    alt: "CatFinder QR code",
   },
 ];
 
@@ -514,7 +523,7 @@ function SponsorSlide({ slide }) {
         animate={{ opacity: 1, y: 0, rotate: 0 }}
         transition={{ delay: 0.06, ...contentTransition }}
       >
-        <img src={slide.image} alt="Mr Orange Cat sponsor" />
+        <img src={slide.image} alt={slide.alt || "Presentation visual"} />
       </motion.figure>
 
       <motion.div
@@ -525,6 +534,7 @@ function SponsorSlide({ slide }) {
       >
         <p className="eyebrow">{slide.eyebrow}</p>
         <h2>{slide.title}</h2>
+        {slide.body && <p className="body">{slide.body}</p>}
       </motion.div>
     </div>
   );
